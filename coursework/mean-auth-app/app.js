@@ -5,6 +5,8 @@ const cors = require("cors")
 const passport = require("passport")
 const mongoose = require("mongoose")
 const config = require("./config/database")
+const session = require('express-session')
+
 
 // Connect to database
 mongoose.connect(config.database)
@@ -29,6 +31,14 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(bodyParser.json())
+
+// Passport middleware
+app.use(session({ secret: 'SECRET' }));
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+require("./config/passport")(passport)
 
 app.use("/users", users)
 
