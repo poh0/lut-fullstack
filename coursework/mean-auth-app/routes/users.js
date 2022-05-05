@@ -27,6 +27,11 @@ router.post("/register", (req, res, next) => {
 
 // Authenticate
 router.post("/authenticate", (req, res, next) => {
+
+    if(!req.body.username || !req.body.password) {
+        return res.json({ success: false, msg: 'Please add all fields' })
+    }
+
     const username = req.body.username
     const password = req.body.password
 
