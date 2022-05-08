@@ -35,7 +35,7 @@ const deletePost = (req, res) => {
     res.json({message: 'Delete post'})
 }
 
-// @desc    Create a comment post
+// @desc    Create a post comment
 // @route   POST api/posts/:id/comment
 // @access  Private
 const commentPost = (req, res) => {

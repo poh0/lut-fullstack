@@ -18,9 +18,11 @@ mongoose.connection.on('error', (err) => {
 
 const app = express()
 
+// express bodyparser
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+// Routes
 app.use('/api/posts', require('./routes/postRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
 
