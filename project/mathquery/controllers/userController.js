@@ -71,8 +71,8 @@ const authenticate = async (req, res) => {
 // @desc    Get user profile
 // @route   GET api/users/profile
 // @access  Private
-const profile = (req, res) => {
-    res.json({message: 'Get user profile'})
+const profile = async (req, res, next) => {
+    res.json({user: req.user})
 }
 
 // Generate JWT token

@@ -2,8 +2,9 @@ const express = require('express')
 const dotenv = require('dotenv').config()
 const port = process.env.PORT || 5000
 const config = require("./config/database")
-const mongoose = require("mongoose")
-
+const mongoose = require('mongoose')
+const passport = require('passport')
+const session = require('express-session')
 
 // Connect to db
 mongoose.connect(config.database)
@@ -21,6 +22,12 @@ const app = express()
 // express bodyparser
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+
+// Passport middleware
+app.use(session({ secret: 'SECRET' }));
+app.use(passport.initialize())
+app.use(passport.session())
+require("./config/passport")(passport)
 
 // Routes
 app.use('/api/posts', require('./routes/postRoutes'))
