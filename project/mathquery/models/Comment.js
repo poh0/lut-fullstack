@@ -3,6 +3,11 @@ const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema ({
     
+    post: {
+        type: Schema.Types.ObjectId,
+        ref: 'post' 
+    },
+
     body: {
         type: String,
         required: true 
