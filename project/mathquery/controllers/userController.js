@@ -61,7 +61,7 @@ const authenticate = async (req, res) => {
             _id: user.id,
             name: user.name,
             email: user.email,
-            token: 'JWT '+ generateToken(user._id),
+            token: 'JWT '+ generateToken(user),
         })
     } else {
         return res.status(400).json({msg: 'Invalid credentials'})
@@ -71,9 +71,9 @@ const authenticate = async (req, res) => {
 // @desc    Get user profile
 // @route   GET api/users/profile
 // @access  Private
-const profile = async (req, res, next) => {
+const profile = async (req, res) => {
     const {name, email, createdDate} = req.user
-    res.json({
+    return res.json({
         user: {
             name,
             email,
@@ -83,8 +83,8 @@ const profile = async (req, res, next) => {
 }
 
 // Generate JWT token
-const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
+const generateToken = (user) => {
+    return jwt.sign({data: user}, process.env.JWT_SECRET, {
       expiresIn: '30d',
     })
 }
