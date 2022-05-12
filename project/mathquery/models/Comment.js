@@ -3,17 +3,22 @@ const Schema = mongoose.Schema;
 
 const CommentSchema = new Schema ({
     
-    post: {
-        type: Schema.Types.ObjectId,
-        ref: 'post' 
-    },
-
     body: {
         type: String,
         required: true 
     },
 
-    user: { 
+    author: {
+        type: String,
+        required: true
+    },   
+
+    post: {
+        type: Schema.Types.ObjectId,
+        ref: 'post' 
+    },
+
+    userId: { 
         type: Schema.Types.ObjectId,
         ref: 'user' 
     },
