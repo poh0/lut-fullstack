@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { QuestionService } from 'src/app/services/question.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  questions = new Array<any>()
+
+  constructor(
+    private questionService: QuestionService,
+    public datepipe: DatePipe
+  ) { }
 
   ngOnInit(): void {
+    this.questionService.getQuestions().subscribe(response => {
+      this.questions = response.posts
+    })
   }
 
 }

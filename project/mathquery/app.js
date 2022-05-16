@@ -5,6 +5,7 @@ const config = require("./config/database")
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
+const cors = require('cors')
 
 // Connect to db
 mongoose.connect(config.database)
@@ -18,6 +19,8 @@ mongoose.connection.on('error', (err) => {
 })
 
 const app = express()
+
+app.use(cors())
 
 // express bodyparser
 app.use(express.json())
