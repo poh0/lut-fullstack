@@ -15,10 +15,20 @@ export class QuestionService {
     private http: HttpClient
   ) { }
 
+  // GET questions from server
   getQuestions(): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json; charset=utf-8');
     return this.http.get<any>(this.url, {headers})
   }
+
+  // GET question by id
+  getQuestion(id: string): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    const url = `${this.url}/${id}`;
+    return this.http.get<any>(url, {headers})
+  }
+  
 
 }

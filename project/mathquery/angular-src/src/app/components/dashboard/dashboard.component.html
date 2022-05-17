@@ -1,14 +1,14 @@
-<div class="container-sm px-5">
+<div class="container">
     <div class="list-group">
         <h2 class="page-header">Latest questions</h2>
-        <a *ngFor="let question of questions" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div *ngFor="let question of questions" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1 link-primary">{{question.title}}</h5>
+                <h5 [routerLink]="['/question', question._id]" class="mb-1 link-primary">{{question.title}}</h5>
                 <small>
                     {{this.datepipe.transform(question.createdDate, 'yyyy-MM-dd')}}
                 </small>
             </div>
             <small>Author: {{question.author}}</small>
-        </a>
+        </div>
     </div>
 </div>

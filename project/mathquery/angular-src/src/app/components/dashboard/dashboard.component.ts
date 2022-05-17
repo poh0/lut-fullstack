@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { QuestionService } from 'src/app/services/question.service';
 import { DatePipe } from '@angular/common'
+import { Router } from '@angular/router';
+
+import { QuestionService } from 'src/app/services/question.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +15,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private questionService: QuestionService,
-    public datepipe: DatePipe
+    public datepipe: DatePipe,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
