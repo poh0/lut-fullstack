@@ -1,1 +1,15 @@
-<p>question works!</p>
+<div class="container mt-5">
+    <div class="card mb-4">
+        <div class="card-header d-flex w-100 justify-content-between">
+          <h2 class="page-header">{{question.post.title}}</h2>
+          <div class="px-4">
+            <small class="row">Author: {{question.post.author}}</small>
+            <small class="row">Created at: {{this.datepipe.transform(question.post.createdDate, 'yyyy-MM-dd')}}</small>
+          </div>
+        </div>
+        <div class="card-body">
+          <p>{{question.post.body}}</p>
+        </div>
+    </div>
+    <h4>Comments:</h4>
+</div>

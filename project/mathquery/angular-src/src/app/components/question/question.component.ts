@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DatePipe } from '@angular/common'
 
 import { QuestionService } from 'src/app/services/question.service';
 
@@ -14,7 +15,8 @@ export class QuestionComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    public datepipe: DatePipe,
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +24,7 @@ export class QuestionComponent implements OnInit {
     console.log(id)
     this.questionService.getQuestion(id)
       .subscribe(question => this.question = question)
+    console.log(this.question)
   }
 
 }
