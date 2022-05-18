@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { QuestionComponent } from './components/question/question.component';
+import { CommentDetailComponent } from './components/comment-detail/comment-detail.component';
 
 const appRoutes: Routes = [
   { path:'', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    QuestionComponent
+    QuestionComponent,
+    CommentDetailComponent
   ],
   imports: [
     BrowserModule,

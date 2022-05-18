@@ -11,5 +11,10 @@
           <p>{{question.post.body}}</p>
         </div>
     </div>
-    <h4>Comments:</h4>
+    <div class="list-group">
+      <h4>Comments:</h4>
+      <div *ngFor="let comment of question.comments" class="list-group-item flex-column align-items-start">
+        <app-comment-detail [comment]="comment"></app-comment-detail>
+      </div>
+    </div>
 </div>
