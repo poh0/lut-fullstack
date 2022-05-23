@@ -32,6 +32,7 @@ const register = async (req, res) => {
 
     if (user) {
         res.status(201).json({
+          success: true,
           _id: user.id,
           name: user.name,
           email: user.email,
