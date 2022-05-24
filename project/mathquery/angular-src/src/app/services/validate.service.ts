@@ -15,6 +15,14 @@ export class ValidateService {
     }
   }
 
+  validateLogin(user: any) {
+    if (!user.email ||!user.password) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   validateEmail(email: string) {
     const re = /\S+@\S+\.\S+/;
     return re.test(email)
