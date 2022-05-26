@@ -15,14 +15,14 @@
             </li>
         </ul>
         <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = {exact:true} >
+            <li *ngIf="!loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = {exact:true} >
                 <a class="nav-link" [routerLink]="['/register']">Register</a>
             </li>
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = {exact:true}>
+            <li *ngIf="!loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = {exact:true}>
                <a class="nav-link" [routerLink]="['/login']">Login</a>
             </li>
-            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = {exact:true}>
-                <a class="nav-link" href="#">Logout</a>
+            <li *ngIf="loggedIn()" class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = {exact:true}>
+                <a class="nav-link" (click)="logout()" [routerLink]="['/dashboard']">Logout</a>
             </li>
         </ul>
       </div>

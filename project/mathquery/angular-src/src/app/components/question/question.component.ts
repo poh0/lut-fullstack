@@ -21,10 +21,8 @@ export class QuestionComponent implements OnInit {
 
   ngOnInit(): void {
     const id = String(this.route.snapshot.paramMap.get('id'))
-    console.log(id)
     this.questionService.getQuestion(id)
       .subscribe(question => this.question = question)
-    console.log(this.question)
   }
 
 }
