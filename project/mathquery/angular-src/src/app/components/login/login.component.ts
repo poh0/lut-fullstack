@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ValidateService } from 'src/app/services/validate.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 import { ToastrService } from 'ngx-toastr';
 
@@ -16,7 +18,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private validateService: ValidateService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -41,6 +45,22 @@ export class LoginComponent implements OnInit {
       return false
     }
 
+    // https://rxjs.dev/deprecations/subscribe-arguments
+    this.authService.authenticateUser(user).subscribe(
+      {
+        next: (data) => {
+          if (data.success) {
+            this.authService.storeUserData(data.token, data.user)
+            this.toastr.success("You are now logged in", "Success")
+            this.router.navigate(['/dashboard'])
+          } 
+        }
+        ,error: (err) => {
+          this.toastr.error(`Something went wrong: ${err.error.msg}`, "Error")
+          this.router.navigate(['/login'])
+        }
+      })
+      
     return true
   }
 
