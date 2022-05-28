@@ -23,6 +23,14 @@ export class ValidateService {
     }
   }
 
+  validateQuestion(question: any) {
+    if (!question.body || !question.title) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   validateEmail(email: string) {
     const re = /\S+@\S+\.\S+/;
     return re.test(email)

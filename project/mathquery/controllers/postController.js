@@ -6,8 +6,9 @@ const Comment = require("../models/Comment")
 // @access  Public
 const getPosts = async (req, res) => {
 
-    // exclude body from response
-    const posts = await Post.find().select('-body')
+    const posts = await Post.find()
+        .select('-body')      // exclude body from response
+        .sort([['createdDate', -1]]) // Sort by date
 
     res.status(200).json({
         success: true,

@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { QuestionComponent } from './components/question/question.component';
 import { CommentDetailComponent } from './components/comment-detail/comment-detail.component';
+import { QuestionFormComponent } from './question-form/question-form.component';
 
 import { ValidateService } from './services/validate.service';
 
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
   { path:'register', component: RegisterComponent },
   { path:'login', component: LoginComponent },
   { path:'dashboard', component: DashboardComponent},
-  { path:'question/:id', component: QuestionComponent }
+  { path:'question/:id', component: QuestionComponent },
+  { path:'ask', component: QuestionFormComponent}
 ]
 
 @NgModule({
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     DashboardComponent,
     QuestionComponent,
-    CommentDetailComponent
+    CommentDetailComponent,
+    QuestionFormComponent
   ],
   imports: [
     BrowserModule,
