@@ -17,9 +17,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { QuestionComponent } from './components/question/question.component';
 import { CommentDetailComponent } from './components/comment-detail/comment-detail.component';
-import { QuestionFormComponent } from './question-form/question-form.component';
+import { QuestionFormComponent } from './components/question-form/question-form.component';
 
 import { ValidateService } from './services/validate.service';
+import { CommentFormComponent } from './components/comment-form/comment-form.component';
 
 const appRoutes: Routes = [
   { path:'', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     QuestionComponent,
     CommentDetailComponent,
-    QuestionFormComponent
+    QuestionFormComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,

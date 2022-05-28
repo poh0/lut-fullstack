@@ -1,0 +1,19 @@
+<div *ngIf="loggedIn(); else notLoggedIn" class="card m-5">
+    <div class="card-header d-flex w-100 justify-content-between">
+        <h4>Your comment</h4>
+    </div>
+    <div class="card-body">
+        <form novalidate>
+            <div class="form-group mb-3">
+              <label for="exampleFormControlTextarea1">Comment body</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" name="body"></textarea>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+</div>
+<ng-template #notLoggedIn> 
+    <div class="my-4">
+        <p class="text-center">You must be logged in to be able to comment</p> 
+    </div>
+</ng-template>

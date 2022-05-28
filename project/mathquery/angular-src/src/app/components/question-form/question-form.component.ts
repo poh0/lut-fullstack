@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { ValidateService } from 'src/app/services/validate.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { QuestionService } from '../services/question.service';
+import { QuestionService } from 'src/app/services/question.service';
 
 import { ToastrService } from 'ngx-toastr';
 
