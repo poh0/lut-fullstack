@@ -37,8 +37,14 @@ export class QuestionService {
     let headers = new HttpHeaders();
     headers = headers.append('Content-Type', 'application/json; charset=utf-8');
     headers = headers.append('Authorization', this.authService.authToken)
-    console.log(headers)
     return this.http.post(`${this.url}`, question, {headers})
   }
 
+  // POST comment to question
+  postComment(body: string, id: string): Observable<any> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json; charset=utf-8');
+    headers = headers.append('Authorization', this.authService.authToken)
+    return this.http.post(`${this.url}/${id}/comment`, {body}, {headers})
+  }
 }

@@ -42,10 +42,15 @@ export class AuthService {
     this.authToken = token
   }
 
+  // returns true if user IS logged in.
   loggedIn() {
     const token = localStorage.getItem("id_token") || undefined
-    // returns true if user IS logged in.
-    return !this.jwtHelper.isTokenExpired(token)
+
+    if (!this.jwtHelper.isTokenExpired(token)) {
+      this.loadToken()
+      return true
+    }
+    return false
   }
   
   logout() {

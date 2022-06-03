@@ -1,7 +1,7 @@
 <div *ngIf="question" class="container mt-5">
     <div class="card mb-4">
         <div class="card-header d-flex w-100 justify-content-between">
-          <h2 class="page-header">{{question.post.title}}</h2>
+          <h5 class="page-header">{{question.post.title}}</h5>
           <div class="px-4">
             <small class="row">Author: {{question.post.author}}</small>
             <small class="row">Created at: {{this.datepipe.transform(question.post.createdDate, 'yyyy-MM-dd')}}</small>
@@ -25,5 +25,5 @@
       </div>
     </ng-template>
 
-    <app-comment-form></app-comment-form>
+    <app-comment-form [questionId]="question.post._id"></app-comment-form>
 </div>
