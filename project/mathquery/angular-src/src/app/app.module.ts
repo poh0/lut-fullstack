@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { KatexModule } from 'ng-katex';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,6 +54,7 @@ const appRoutes: Routes = [
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    KatexModule
   ],
   providers: [DatePipe, ValidateService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService, AuthGuard],
   bootstrap: [AppComponent]
