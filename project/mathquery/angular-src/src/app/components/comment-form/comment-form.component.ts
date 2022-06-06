@@ -16,6 +16,7 @@ export class CommentFormComponent implements OnInit {
   @Input() questionId = ""
   
   body: string = ""
+  preview: boolean = false
 
   constructor(
     private authService: AuthService,

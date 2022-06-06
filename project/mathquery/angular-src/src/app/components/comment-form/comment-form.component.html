@@ -4,11 +4,16 @@
     </div>
     <div class="card-body">
         <form novalidate (submit)="onCommentSubmit()">
-            <div class="form-group mb-3">
+            <div *ngIf="!preview" class="form-group mb-3">
               <label for="exampleFormControlTextarea1">Comment body</label>
               <textarea [(ngModel)]="body" class="form-control" id="exampleFormControlTextarea1" rows="6" name="body"></textarea>
             </div>
-            <input class="btn btn-primary" type="submit" value="Submit">
+            <div *ngIf="preview" class="form-group mb-3">
+                <ng-katex-paragraph [paragraph]="body"></ng-katex-paragraph>
+            </div>
+            <input class="btn btn-primary mx-2" type="submit" value="Submit">
+            <button *ngIf="!preview" class="btn btn-success" (click)="preview = !preview">Preview</button>
+            <button *ngIf="preview" class="btn btn-success" (click)="preview = !preview">Edit</button>
         </form>
     </div>
 </div>
