@@ -22,13 +22,15 @@ import { QuestionFormComponent } from './components/question-form/question-form.
 import { ValidateService } from './services/validate.service';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const appRoutes: Routes = [
   { path:'', redirectTo: '/dashboard', pathMatch: 'full' },
   { path:'register', component: RegisterComponent },
   { path:'login', component: LoginComponent },
   { path:'dashboard', component: DashboardComponent},
   { path:'question/:id', component: QuestionComponent },
-  { path:'ask', component: QuestionFormComponent}
+  { path:'ask', component: QuestionFormComponent, canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -52,7 +54,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [DatePipe, ValidateService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],
+  providers: [DatePipe, ValidateService, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
