@@ -6,12 +6,13 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
 const cors = require('cors')
+const path = require('path');
 
 // Connect to db
-mongoose.connect(config.database)
+mongoose.connect(process.env.MONGO_URI)
 
 mongoose.connection.on('connected', () => {
-    console.log(`Connected to database ${config.database}`)
+    console.log(`Connected to database ${process.env.MONGO_URI}`)
 })
 
 mongoose.connection.on('error', (err) => {
@@ -21,6 +22,9 @@ mongoose.connection.on('error', (err) => {
 const app = express()
 
 app.use(cors())
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // express bodyparser
 app.use(express.json())
@@ -35,5 +39,13 @@ require("./config/passport")(passport)
 // Routes
 app.use('/api/posts', require('./routes/postRoutes'))
 app.use('/api/users', require('./routes/userRoutes'))
+
+app.get('/', (req, res) => {
+    res.send('invaild endpoint');
+  });
+  
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 app.listen(port, () => console.log(`Server started on port ${port}`))

@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 export class QuestionService {
 
-  url = 'http://localhost:5000/api/posts'
+  url = 'api/posts'
 
   constructor(
     private http: HttpClient,

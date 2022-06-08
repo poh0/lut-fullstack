@@ -11,7 +11,7 @@ export class AuthService {
   authToken: any
   user: any
   
-  url = "http://localhost:5000/api/users"
+  url = "api/users"
 
   constructor(
     private http: HttpClient,
