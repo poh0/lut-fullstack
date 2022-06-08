@@ -14,7 +14,7 @@ const register = async (req, res) => {
     }
 
     // Check if an user exists with the same email
-    const userExists = await User.findOne({ email })
+    const userExists = await User.findOne({ email: email.toLowerCase() })
     if (userExists) {
         return res.status(400).json({success: false, msg: 'User already exists'})
     }
@@ -26,7 +26,7 @@ const register = async (req, res) => {
     // Create user
     const user = await User.create({
         name,
-        email,
+        email: email.toLowerCase(),
         password: hashedPassword,
     })
 
@@ -55,7 +55,7 @@ const authenticate = async (req, res) => {
     }
 
     // Check for user email
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ email: email.toLowerCase() })
 
     if (user && (await bcrypt.compare(password, user.password))) {
         res.json({
