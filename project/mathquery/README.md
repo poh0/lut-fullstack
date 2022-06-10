@@ -2,7 +2,7 @@
 
 Simple question and answer forum for mathematicians.
 
-[Link to showcase video]() (Google Drive)
+[Link to showcase video](https://drive.google.com/file/d/1yICygA_PCul9Zca1_FZQQxVUyUrnDU0Z/view?usp=sharing) (Google Drive)
 
 ### Run production build locally:
 
@@ -27,9 +27,9 @@ cd lut-fullstack/project/mathquery
 Rename `.env.example` to `.env` and fill in your environment variables:
 
 ```sh
-PORT= <Port number where you want to run this project>
-MONGO_URI= <Connection string to your mongodb server>
-JWT_SECRET= <random string>
+PORT = <Port number where you want to run this project>
+MONGO_URI = <Connection string to your mongodb server>
+JWT_SECRET = <random string>
 ```
 
 Install dependencies for both backend and frontend
