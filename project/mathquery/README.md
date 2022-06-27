@@ -2,7 +2,7 @@
 
 Simple question and answer forum for mathematicians.
 
-[Link to showcase video](https://drive.google.com/file/d/1yICygA_PCul9Zca1_FZQQxVUyUrnDU0Z/view?usp=sharing) (Google Drive)
+[Link to showcase video](https://www.youtube.com/watch?v=NoA77StMr9Q) (Youtube)
 
 ### Run production build locally:
 
